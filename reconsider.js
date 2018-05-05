@@ -1,7 +1,14 @@
-function reconsider(text) {
+function reconsider(text, callback) {
   analyze(text)
     .then(res => res.json())
-    .then(data => alert(JSON.stringify(data)));
+    .then(data => {
+      for (sentence of data.sentences) {
+        if (sentence.sentiment.score <= -0.5 && sentence.sentiment.magnitude >= 0.5) {
+          callback();
+          return;
+        }
+      }
+    });
 }
 
 function analyze(text) {

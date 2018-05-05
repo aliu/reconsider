@@ -6,7 +6,9 @@
   </head>
   <body>
     <input type="text" id="input"/>
-    <button type="button" onclick="reconsider(document.getElementById('input').value)">Send</button>
+    <button type="button" onclick="reconsider(document.getElementById('input').value, function() {
+      alert('test');
+    })">Send</button>
     <script src="reconsider.js"></script>
   </body>
 </html>
