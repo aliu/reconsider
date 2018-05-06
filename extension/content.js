@@ -4,7 +4,7 @@ document.body.onkeydown = function(e) {
     if (e.key === 'Enter' && !e.flag) {
       e.preventDefault();
       e.stopPropagation();
-      reconsider(message, function(wait) {
+      reconsider(message).then((wait) => {
         if (wait) {
           console.log('Wait! Please reconsider sending this message!');
         } else {
@@ -14,5 +14,6 @@ document.body.onkeydown = function(e) {
       });
     }
   } catch (error) {
+    console.log(error);
   }
 };

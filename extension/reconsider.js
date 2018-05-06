@@ -1,15 +1,15 @@
-function reconsider(text, callback) {
+function reconsider(text) {
   analyze(text)
     .then(res => res.json())
     .then(data => {
       for (sentence of data.sentences) {
         if (sentence.sentiment.score <= -0.5 && sentence.sentiment.magnitude >= 0.5) {
-          callback(true);
-          return;
+          return Promise.resolve(true);
         }
       }
-      callback(false);
-    });
+      return Promise.resolve(false);
+    })
+    .catch(error => Promise.reject(error));
 }
 
 function analyze(text) {
