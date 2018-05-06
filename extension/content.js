@@ -1,3 +1,5 @@
+var allow = false;
+
 document.body.onkeydown = function(e) {
   try {
     var message = e.target.firstChild.firstChild.innerText;
@@ -7,18 +9,22 @@ document.body.onkeydown = function(e) {
       e.preventDefault();
       e.stopPropagation();
       reconsider(message).then((wait) => {
-        if (wait) {
+        if (wait && !allow) {
           element.classList.add('animation');
           setTimeout(() => {
             element.classList.remove('animation');
-          }, 2000);
+            allow = true;
+          }, 5000);
         } else {
           e.flag = true;
+          allow = false;
           e.target.dispatchEvent(e);
         }
-      });
+      }).catch(error => console.log(error));
     }
   } catch (error) {
+    e.preventDefault();
+    e.stopPropagation();
     console.log(error);
   }
 };
