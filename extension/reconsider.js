@@ -1,5 +1,5 @@
 function reconsider(text) {
-  analyze(text)
+  return analyze(text)
     .then(res => res.json())
     .then(data => {
       for (sentence of data.sentences) {
