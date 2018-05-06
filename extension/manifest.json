@@ -1,0 +1,12 @@
+{
+  "name": "reconsider",
+  "version": "0.0.1",
+  "description": "reconsider sending a negative message!",
+  "manifest_version": 2,
+  "content_scripts": [
+    {
+      "matches": [ "https://www.facebook.com/*" ],
+      "js": [ "reconsider.js", "content.js" ]
+    }
+  ]
+}
