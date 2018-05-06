@@ -1,0 +1,36 @@
+.tooltip::before,
+.tooltip::after {
+  position: absolute;
+  content: '';
+  opacity: 0;
+  transition: all 0.4s ease;
+  color: #fff;
+}
+
+.tooltip::before {
+  border-width: 10px 8px 0 8px;
+  border-style: solid;
+  border-color: #0084ff transparent transparent transparent;
+  top: -15px;
+  left: 10px;
+  transform: translateY(20px);
+}
+
+.tooltip::after {
+  content: 'Wait! Are you sure you want to say this to this person?';
+  background: #0084ff;
+  width: 200px;
+  height: 32px;
+  font-size: 13px;
+  top: -65px;
+  padding: 10px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transform: translateY(20px);
+}
+
+.animation::before,
+.animation::after {
+  opacity: 1;
+  transform: translateY(-2px);
+}
