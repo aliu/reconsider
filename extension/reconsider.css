@@ -10,7 +10,7 @@
 .tooltip::before {
   border-width: 10px 8px 0 8px;
   border-style: solid;
-  border-color: #0084ff transparent transparent transparent;
+  border-color: #e91d63 transparent transparent transparent;
   top: -15px;
   left: 10px;
   transform: translateY(20px);
@@ -18,7 +18,7 @@
 
 .tooltip::after {
   content: 'Wait! Are you sure you want to say this to this person?';
-  background: #0084ff;
+  background: #e91d63;
   width: 200px;
   height: 32px;
   font-size: 13px;
